@@ -1,0 +1,53 @@
+<h1>Article App </h2>
+
+	 <body>
+
+  <div class="form">
+      
+       <!--  <li class="tab active"><%#= link_to 'Back', {:action => 'list', :controller => 'user'} %></li> -->
+       
+      
+      
+      <div class="tab-content">
+        <div id="signup">   
+          <h2 style="background-color:#0087be;text-align:center;">Sign Up For Admin User</h2>
+		 <% if @user.errors.any? %>
+			<h2>Errors</h2>
+			<ul>
+			<% @user.errors.full_messages.each do |message|%>
+			<li><%= message %></li>
+		<% end %>  
+    </ul>
+  <% end %>
+          
+          <%= form_tag :action => 'create' do %>
+			<label for = "user_email" style="background-color:#0087be;">Enter Email</label>
+			<%= text_field 'user', 'email' %>
+			<br/>
+
+			<label for = "user_name" style="background-color:#0087be;">User Name</label>
+			<%= text_field 'user', 'username' %>
+		
+			<br/>
+			<label for = "user_image" style="background-color:#0087be;">Profile Picture</label>
+			<%= file_field 'user', 'profile_picture' %>
+			<br/>
+			<label for = "user_location" style="background-color:#0087be;">User Location</label>
+			<%= text_field 'user', 'location' %>
+			<br/>
+			<label for = "user_ip" style="background-color:#0087be;">User IPAddress</label>
+			<%= text_field 'user', 'user_ip' %>
+			<br/>
+			<button type="submit" class="button button-block" style="background-color: white;"/><%= submit_tag "Create" , {:style=> "color:white; background-color:#0087be;font-size:15px;font-family:martel;cursor:pointer;"} %></button>
+
+		<% end %>  
+          
+          </form>
+
+        </div>
+        
+      </div><!-- tab-content -->
+      
+</div> <!-- /form -->
+
+</body>
